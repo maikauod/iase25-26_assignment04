@@ -10,7 +10,9 @@ import kotlin.random.Random
 internal object Mutators {
     /** Deletes one randomly chosen character. */
     fun deleteRandomCharacter(input: String, random: Random): String =
-        TODO("Exercise 1: delete one randomly chosen character")
+        TODO("Exercise 1: delete one randomly chosen character"
+            val oginput = input
+            var new_input =
 
     /** Inserts one character drawn uniformly from [alphabet] at a random position. */
     fun insertRandomCharacter(input: String, alphabet: List<Char>, random: Random): String =
