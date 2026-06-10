@@ -2,6 +2,7 @@ package de.seuhd.ktfuzzer.mode.mutational
 
 import kotlin.random.Random
 
+
 /**
  * Character-level mutators from The Fuzzing Book's MutationFuzzer
  * (<https://www.fuzzingbook.org/html/MutationFuzzer.html>), plus [repeatRandomCharacter]. Each
@@ -25,18 +26,29 @@ internal object Mutators {
     fun insertRandomCharacter(input: String, alphabet: List<Char>, random: Random): String {
         //TODO("Exercise 1: insert one character from the alphabet at a random position")
 
-        var inputList = input.toMutableList()
+        var result = input.toMutableList()
         val randomCharacter = alphabet[random.nextInt(alphabet.size)]
         val index = random.nextInt(input.length+1)
-        var result = inputList.add(index, randomCharacter)
+        result.add(index, randomCharacter)
         return result.joinToString("")
 
     }
 
 
     /** Flips one randomly chosen low bit of one randomly chosen character. */
-    fun flipRandomCharacter(input: String, random: Random): String =
-        TODO("Exercise 1: flip one random low bit of one randomly chosen character")
+   fun flipRandomCharacter(input: String, random: Random): String {
+        //TODO("Exercise 1: flip one random low bit of one randomly chosen character")
+        if (input.isEmpty()) return ""
+
+        val result = input.toMutableList()
+        val index = random.nextInt(input.length)
+
+        val bit = 1 shl random.nextInt(8) // pick a single low bit
+        result[index] = (result[index].code xor bit).toChar()
+
+        return result.joinToString("")
+    }
+
 
     /** Repeats one randomly chosen character a random number of times in place. */
     fun repeatRandomCharacter(input: String, random: Random): String =
