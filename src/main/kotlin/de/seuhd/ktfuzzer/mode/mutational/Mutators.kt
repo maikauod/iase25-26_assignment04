@@ -51,6 +51,18 @@ internal object Mutators {
 
 
     /** Repeats one randomly chosen character a random number of times in place. */
-    fun repeatRandomCharacter(input: String, random: Random): String =
-        TODO("Exercise 1: repeat one randomly chosen character a random number of times")
+    fun repeatRandomCharacter(input: String, random: Random): String {
+        //TODO("Exercise 1: repeat one randomly chosen character a random number of times")
+        if (input.isEmpty()) return ""
+
+        var result = input.toMutableList()
+        val index = random.nextInt(input.length)
+        val counter = random.nextInt(1, 1000)
+        val repeatedCharacter = result[index]
+
+        repeat(counter) {
+            result.add(index, repeatedCharacter)
+        }
+        return result.joinToString("")
+    }
 }
