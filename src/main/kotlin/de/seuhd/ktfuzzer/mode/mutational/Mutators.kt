@@ -22,8 +22,17 @@ internal object Mutators {
 
 
     /** Inserts one character drawn uniformly from [alphabet] at a random position. */
-    fun insertRandomCharacter(input: String, alphabet: List<Char>, random: Random): String =
-        TODO("Exercise 1: insert one character from the alphabet at a random position")
+    fun insertRandomCharacter(input: String, alphabet: List<Char>, random: Random): String {
+        //TODO("Exercise 1: insert one character from the alphabet at a random position")
+
+        var inputList = input.toMutableList()
+        val randomCharacter = alphabet[random.nextInt(alphabet.size)]
+        val index = random.nextInt(input.length+1)
+        var result = inputList.add(index, randomCharacter)
+        return result.joinToString("")
+
+    }
+
 
     /** Flips one randomly chosen low bit of one randomly chosen character. */
     fun flipRandomCharacter(input: String, random: Random): String =
