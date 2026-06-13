@@ -1,6 +1,6 @@
 # Fuzzing report: iase26 Assignment 04
 
-Name(s) and student ID: Mai Kauod 4739687, Angelina Valijonova
+Name(s) and student ID: Mai Kauod 4739687, Angelina Valijonova 4751344
 
 ## Platform tested
 macOS Tahoe 26.5 running on Apple Silicon (Apple M3, arm64)
@@ -54,3 +54,22 @@ it's possible other mutations like flip and delete were called and just aren't a
 
 Which crash does the grammar-based fuzzer reach? Why can neither a mutational nor a lexical
 (regular) fuzzer reach it?
+
+A mutational fuzzer is unlikely to find this bug because it only makes small changes to existing inputs and it is not enough to trigger the bug
+
+A lexical fuzzer also has problems finding this bug.
+It can generate random text, but it does not know how nested brackets should be built
+
+
+A grammar-based fuzzer can find this bug much more easily because it knows the grammar and can intentionally generate deeply nested inputs
+while the other fuzzers mostly create random changes and usually break the structure.
+
+
+## AI Usage
+
+We used ChatGPT for:
+- debugging Kotlin build and test failures,
+- understanding the assignment requirements,
+- reviewing and improving report wording
+
+All code changes were implemented, tested, and verified by us

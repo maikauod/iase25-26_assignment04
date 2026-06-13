@@ -44,7 +44,7 @@ internal class MutationalFuzzer(
 
     /** Applies one randomly chosen mutator to [input]. */
     internal fun mutate(input: String, random: Random): String =
-        //TODO("Exercise 1: apply one randomly chosen mutator from Mutators")
+        // TODO("Exercise 1: apply one randomly chosen mutator from Mutators")
         when (random.nextInt(4)) {
             0 -> Mutators.deleteRandomCharacter(input, random)
             1 -> Mutators.insertRandomCharacter(input, alphabet, random)
